@@ -176,6 +176,8 @@ class RustPlugin {
     if (service.provider.runtime === RUST_RUNTIME) {
       service.provider.runtime = BASE_RUNTIME;
     }
+    console.log("service: ");
+    console.log(service);
     if (!rustFunctionsFound) {
       throw new Error(
         `Error: no Rust functions found. ` +
