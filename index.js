@@ -44,7 +44,10 @@ class RustPlugin {
         {}
     );
 
+    console.log("this.custom.dockerPath: " + this.custom.dockerPath);
+    console.log("this.servicePath: " + this.servicePath);
     this.dockerPath = path.resolve(this.custom.dockerPath || this.servicePath);
+    console.log("this.dockerPath: " + this.dockerPath);
 
     // By default, Serverless examines node_modules to figure out which
     // packages there are from dependencies versus devDependencies of a
@@ -151,11 +154,13 @@ class RustPlugin {
       // we leverage the ability to declare a package artifact directly
       // see https://serverless.com/framework/docs/providers/aws/guide/packaging/
       // for more information
+      console.log("dockerPath: " + this.dockerPath);
       const artifactPath = path.join(
         this.dockerPath,
         `target/lambda/${"dev" === profile ? "debug" : "release"}`,
         binary + ".zip"
       );
+      console.log("artifactPath: " + artifactPath);
       func.package = func.package || {};
       func.package.artifact = artifactPath;
 
