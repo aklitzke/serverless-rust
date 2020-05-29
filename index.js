@@ -156,7 +156,6 @@ class RustPlugin {
       // for more information
       console.log("dockerPath: " + this.dockerPath);
       const artifactPath = path.join(
-        this.dockerPath,
         `target/lambda/${"dev" === profile ? "debug" : "release"}`,
         binary + ".zip"
       );
