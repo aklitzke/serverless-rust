@@ -161,8 +161,12 @@ class RustPlugin {
         binary + ".zip"
       );
       console.log("artifactPath: " + artifactPath);
+      console.log("func.package: " + func.package);
       func.package = func.package || {};
       func.package.artifact = artifactPath;
+      console.log("func.package: " + func.package);
+      console.log("func: ");
+      console.log(func);
 
       // Ensure the runtime is set to a sane value for other plugins
       if (func.runtime == RUST_RUNTIME) {
